@@ -17,7 +17,7 @@ const ProductosList = ({productos}) =>{
                     <th>{producto.nombre}</th>
                     <th>{producto.precio_unitario}</th>
                     <th>{producto.cantidad}</th>
-                    <th><a href={'/productos/' + producto.id_producto}>Detalles</a> <a href={'/retiro/'}>Retiro</a></th>
+                    <th><a href={'/productos/' + producto.id_producto}>Detalles</a> <a href={'/retiro/' + producto.id_producto}>Retiro</a></th>
                     
                 </tr> 
                 ))}

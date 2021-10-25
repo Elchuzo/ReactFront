@@ -5,7 +5,7 @@ import {useAuth0} from '@auth0/auth0-react';
 import axios from 'axios';
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import {Navegacion, Inicio, Productos, ProductoDetalle, Camara, ProductoNuevo} from "./Components"
+import {Navegacion, Retiros,Inicio, Productos, ProductoDetalle, Camara, ProductoNuevo, ProductoRetiro, RetiroFuncion} from "./Components"
 
 // class Test extends Component {
 //   state = {
@@ -90,18 +90,18 @@ async function callPAPI()
 return (
 
 <div className='App'>
-{/* <h1>Auth0 Auth</h1>
+{/* <h1>Auth0 Auth</h1> */}
 <ul>
   <li>
-    <button onClick={loginWithPopup}> Login with Popup</button>
+    <button onClick={loginWithPopup}>Login Popup</button>
   </li>
   <li>
-    <button onClick={loginWithRedirect}> Login with Redirect</button>
+    <button onClick={loginWithRedirect}>Login Redirect</button>
   </li>
   <li>
     <button onClick={logout}>Logout</button>
   </li>
-</ul> */}
+</ul>
 
 <div>
 <div className="App">
@@ -112,21 +112,24 @@ return (
         <Route path="/productos" exact component={() => <Productos />} />
         <Route path="/camara" exact component={() => <Camara />} />
         <Route path="/productos/:idProducto" exact component={() => <ProductoDetalle/>} />
+        <Route path="/retiros" exact component={() => <Retiros/>} />
         <Route path="/nuevo/" exact component={() => <ProductoNuevo/>} />
+        <Route path="/nuevofuncion/" exact component={() => <RetiroFuncion/>} />
         </Switch>
       </Router>
     </div>
 </div>
 
-{/* <h3>User is {isAuthenticated ? 'Logged in' : 'Not logged in'}</h3>
-
-<div>
+{/* <h3>User is {isAuthenticated ? 'Logged in' : 'Not logged in'}</h3> */}
+{/* <p>Hola {isAuthenticated? user.name : "no se ha iniciado"}</p> */}
+{/* <div>
   <ul>
     <li><button onClick={callAPI}>call API</button></li>
     <li><button onClick={callPAPI}>call protected API</button></li>
   </ul>
-</div>
+</div> */}
 
+{/* 
 {isAuthenticated && (
   <pre style={{textAlign: 'start'}}>
     {JSON.stringify(user,null,2)}

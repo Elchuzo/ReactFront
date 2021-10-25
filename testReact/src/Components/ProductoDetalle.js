@@ -48,7 +48,7 @@ console.log(producto);
                 </tr>
                 <tr>
                     <th>QR: </th>
-                    <td><QRCode size="320" value={generarJson(producto.id_producto)} /></td>
+                    <td><QRCode size={320} value={generarJson(producto.id_producto)} /></td>
                 </tr>
                 </React.Fragment>
 

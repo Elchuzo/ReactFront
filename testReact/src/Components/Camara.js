@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import QrReader from 'react-qr-reader'
-
+import { withRouter } from "react-router-dom";
+import axios from "axios";
 class Camara extends Component {
   state = {
     result: 'No result'
@@ -13,6 +14,16 @@ class Camara extends Component {
       this.setState({        
         result: data
       })
+    
+      axios.get("http://localhost:8080/api/productos?id=" + info.id)
+      .then(response => {
+          console.log(response.data[0]);
+          const producto = response.data[0];
+          this.props.history.push({
+            pathname: '/nuevofuncion',
+            state: {producto}
+          })
+      });      
     }
   }
 
@@ -24,7 +35,7 @@ class Camara extends Component {
     return (
       <div>
         <QrReader
-          delay={300}
+          delay={500}
           onError={this.handleError}
           onScan={this.handleScan}
           style={{ width: '100%' }}
@@ -35,4 +46,4 @@ class Camara extends Component {
   }
 }
 
-export default Camara;
+export default withRouter(Camara);

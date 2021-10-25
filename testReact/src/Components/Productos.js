@@ -3,7 +3,6 @@ import ProductosList from './ProductosList';
 
 function Producto()
 {
-
   const [productos, setProductos] = useState([])
   
   useEffect(() => {
