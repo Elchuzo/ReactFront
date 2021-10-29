@@ -1,6 +1,6 @@
 import React, { useState , useEffect} from "react";
 import {useAuth0} from '@auth0/auth0-react';
-import axios from "axios";
+import axios from '../Axios/axios';
 import { withRouter } from "react-router-dom";
 
 
@@ -43,7 +43,7 @@ function RetiroFuncion(props) {
         producto.cantidad = maxValue - parsedValue;
         producto.final = maxValue - parsedValue;
         console.log("token obtenido: " +  token);
-        const response = axios.put('http://localhost:8080/api/productos/' + producto.id_producto, producto ,{
+        const response = axios.put('/api/productos/' + producto.id_producto, producto ,{
             headers: {
               authorization: `Bearer ${token}`,
             },

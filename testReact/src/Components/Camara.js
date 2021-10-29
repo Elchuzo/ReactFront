@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import QrReader from 'react-qr-reader'
 import { withRouter } from "react-router-dom";
-import axios from "axios";
+import axios from '../Axios/axios';
 class Camara extends Component {
   state = {
     result: 'No result'
@@ -15,7 +15,7 @@ class Camara extends Component {
         result: data
       })
     
-      axios.get("http://localhost:8080/api/productos?id=" + info.id)
+      axios.get("/api/productos?id=" + info.id)
       .then(response => {
           console.log(response.data[0]);
           const producto = response.data[0];

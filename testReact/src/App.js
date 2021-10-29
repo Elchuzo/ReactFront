@@ -2,10 +2,12 @@ import React, {Fragment,useState,useEffect,Component } from 'react';
 // import Navbar from './Components/Navbar';
 // import ProductosList from './Components/ProductosList';
 import {useAuth0} from '@auth0/auth0-react';
-import axios from 'axios';
+import axios from './Axios/axios';
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import {Navegacion, Retiros,Inicio, Productos, ProductoDetalle, Camara, ProductoNuevo, ProductoRetiro, RetiroFuncion} from "./Components"
+
+// axios.defaults.baseURL = 'http://localhost:8080';
 
 // class Test extends Component {
 //   state = {
@@ -68,14 +70,14 @@ const {loginWithPopup, loginWithRedirect, logout, user, isAuthenticated, getAcce
 
 function callAPI()
 {
-  axios.get("http://localhost:8080/api/productos/").then(response => console.log(response.data));
+  axios.get("/api/productos/").then(response => console.log(response.data));
 }
 
 async function callPAPI()
 {
   try{
     const token = await getAccessTokenSilently();
-    const response = await axios.get('http://localhost:8080/protected', {
+    const response = await axios.get('protected', {
       headers: {
         authorization: `Bearer ${token}`,
       },
@@ -122,12 +124,12 @@ return (
 
 {/* <h3>User is {isAuthenticated ? 'Logged in' : 'Not logged in'}</h3> */}
 {/* <p>Hola {isAuthenticated? user.name : "no se ha iniciado"}</p> */}
-{/* <div>
+<div>
   <ul>
     <li><button onClick={callAPI}>call API</button></li>
     <li><button onClick={callPAPI}>call protected API</button></li>
   </ul>
-</div> */}
+</div>
 
 {/* 
 {isAuthenticated && (

@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from '../Axios/axios';
 import React ,{Component} from "react";
 import { withRouter } from "react-router-dom";
 import {useState, useEffect} from "react";
@@ -56,7 +56,7 @@ class ProductoRetiro extends React.Component{
            // const producto = JSON.stringify(this.state);
             console.log(this.idp);
             
-            axios.put('http://localhost:8080/api/productos/' + this.idp, this.state,{
+            axios.put('/api/productos/' + this.idp, this.state,{
                 headers: {
                   authorization: `Bearer ${GetToken()}`,
                 },

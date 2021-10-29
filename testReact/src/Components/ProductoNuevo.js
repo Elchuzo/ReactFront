@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from '../Axios/axios';
 import React ,{Component} from "react";
 import {useHistory} from "react-router-dom";
 import { withRouter } from "react-router-dom";
@@ -38,7 +38,7 @@ class ProductoNuevo extends React.Component{
             
             const producto = JSON.stringify(this.state);
             console.log(producto)
-            axios.post('http://localhost:8080/api/productos/', this.state)
+            axios.post('/api/productos/', this.state)
             .then(response => {
                 console.log(response);
                 this.props.history.push('/productos')
