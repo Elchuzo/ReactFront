@@ -7,7 +7,7 @@ function Producto()
   
   useEffect(() => {
     const getProductos = () => {
-      fetch('http://localhost:8080/api/productos')
+      fetch('https://18.222.158.24:8080/api/productos')
       .then(res => res.json())
       .then(res => setProductos(res))
     }

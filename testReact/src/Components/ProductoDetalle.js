@@ -20,7 +20,7 @@ function ProductoDetalle()
     const {idProducto} = useParams();
 
     useEffect(()=>{
-        const getProducto = () => {fetch("http://localhost:8080/api/productos?id=" + idProducto)
+        const getProducto = () => {fetch("https://18.222.158.24:8080/api/productos?id=" + idProducto)
         .then(res => res.json())
         .then(res => setProducto(res))
     }

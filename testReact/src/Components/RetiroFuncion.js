@@ -61,8 +61,8 @@ function RetiroFuncion(props) {
   
   return (
     <div>
-      <h3>User is {isAuthenticated ? 'Logged in' : 'Not logged in'}</h3>
-      <h3>Hola {user.user_id}</h3>
+      {/* <h3>User is {isAuthenticated ? 'Logged in' : 'Not logged in'}</h3>
+      <h3>Hola {user.user_id}</h3> */}
     <h1>Retiro</h1>
     <form onSubmit={handleSubmit}>
       <label>

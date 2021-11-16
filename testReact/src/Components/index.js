@@ -7,4 +7,5 @@ export { default as ProductoNuevo} from "./ProductoNuevo";
 export {default as ProductoRetiro} from "./ProductoRetiro";
 export {default as RetiroFuncion} from "./RetiroFuncion";
 export {default as Retiros} from "./Retiros";
+export {default as ControlLogin} from "./ControlLogin"
 // export { default as Retiros } from "./Retiros";

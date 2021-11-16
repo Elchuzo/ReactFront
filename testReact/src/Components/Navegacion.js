@@ -1,66 +1,38 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
+import Navbar from "react-bootstrap/Navbar";
+import Nav from "react-bootstrap/Nav";
+import NavDropdown from "react-bootstrap/NavDropdown";
+import Container from "react-bootstrap/Container";
+import Button from "react-bootstrap/Button";
+import LoginControl from "./LoginControl";
+import { ControlLogin } from ".";
 
 function Navegacion(props) {
   return (
-    <div className="navigation">
-      <nav class="navbar navbar-expand navbar-dark bg-dark">
-        <div class="container">
-          <Link class="navbar-brand" to="/">
-            Gastro Avances
-          </Link>
-
-          <div>
-
-            <ul class="navbar-nav ml-auto">
-
-              <li
-                class={`nav-item  ${
-                  props.location.pathname === "/" ? "active" : ""
-                }`}
-              >
-                <Link class="nav-link" to="/">
-                  Inicio
-                  <span class="sr-only"></span>
-                </Link>
-              </li>
-
-              <li
-                class={`nav-item  ${
-                  props.location.pathname === "/productos" ? "active" : ""
-                }`}
-              >
-                <Link class="nav-link" to="/productos">
-                  Productos
-                </Link>
-              </li>
-
-              <li
-                class={`nav-item  ${
-                  props.location.pathname === "/camara" ? "active" : ""
-                }`}
-              >
-                <Link class="nav-link" to="/camara">
-                  Camara
-                </Link>
-              </li>
-
-              <li
-                class={`nav-item  ${
-                  props.location.pathname === "/retiros" ? "active" : ""
-                }`}
-              >
-                <Link class="nav-link" to="/retiros">
-                  Retiros
-                </Link>
-              </li>
-
-            </ul>
-
-          </div>
-        </div>
-      </nav>
-    </div>
+    <Navbar bg="light" expand="lg">
+      <Container>
+        <Navbar.Brand href="/">Gastro Avances</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto">
+            <Nav.Link href="/productos">Productos</Nav.Link>
+            <Nav.Link href="/camara">Escanear</Nav.Link>
+            <Nav.Link href="/retiros">Retiros</Nav.Link>
+            {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+<NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+<NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
+<NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+<NavDropdown.Divider />
+<NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+</NavDropdown> */}
+          </Nav>
+        </Navbar.Collapse>
+        <Navbar.Collapse className="justify-content-end">
+          <ControlLogin></ControlLogin>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 }
 
