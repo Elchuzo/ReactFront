@@ -12,7 +12,7 @@ function LogoutButton(props) {
       } = useAuth0();
 
     return (
-      <Button onClick={logout}>
+      <Button variant="dark" onClick={logout}>
         Logout
       </Button>
     );

@@ -12,7 +12,7 @@ function LoginButton(props) {
       } = useAuth0();
 
     return (
-      <Button variant="secondary" onClick={loginWithRedirect}>
+      <Button variant="light" onClick={loginWithRedirect}>
         Login
       </Button>
     );
