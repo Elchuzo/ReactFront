@@ -1,4 +1,5 @@
 import { useAuth0 } from "@auth0/auth0-react";
+import Button from "react-bootstrap/Button";
 
 function LogoutButton(props) {
     const {
@@ -11,9 +12,9 @@ function LogoutButton(props) {
       } = useAuth0();
 
     return (
-      <button onClick={logout}>
+      <Button onClick={logout}>
         Logout
-      </button>
+      </Button>
     );
   }
 

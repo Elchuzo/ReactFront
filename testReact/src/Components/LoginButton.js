@@ -1,4 +1,5 @@
 import { useAuth0 } from "@auth0/auth0-react";
+import Button from "react-bootstrap/Button";
 
 function LoginButton(props) {
     const {
@@ -11,9 +12,9 @@ function LoginButton(props) {
       } = useAuth0();
 
     return (
-      <button onClick={loginWithRedirect}>
+      <Button variant="secondary" onClick={loginWithRedirect}>
         Login
-      </button>
+      </Button>
     );
   }
 
