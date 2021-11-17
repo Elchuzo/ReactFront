@@ -7,7 +7,7 @@ function Retiros()
   
   useEffect(() => {
     const getRetiros = () => {
-      fetch('https://18.222.158.24:8080/api/retiros')
+      fetch('https://18.222.158.24:6043/api/retiros')
       .then(res => res.json())
       .then(res => setRetiros(res))
     }
