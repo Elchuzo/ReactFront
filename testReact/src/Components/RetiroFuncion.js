@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import axios from "../Axios/axios";
 import { withRouter } from "react-router-dom";
+import { useHistory } from "react-router";
 
 function RetiroFuncion(props) {
   console.log(props);
@@ -13,6 +14,8 @@ function RetiroFuncion(props) {
   const id_producto = props.location.state.producto.id_producto;
   const maxValue = props.location.state.producto.cantidad;
   const [token, setToken] = useState(null);
+  const history = useHistory();
+
   useEffect(() => {
     async function getToken() {
       const token = await getAccessTokenSilently();
@@ -53,6 +56,11 @@ function RetiroFuncion(props) {
         }
       );
       console.log(response);
+      history.push({
+        pathname: '/retiros'
+      })
+
+      
     } else {
       evt.preventDefault();
       alert("Cantidad invalida");
