@@ -66,7 +66,6 @@ function App() {
         <div className="App">
           <Router>
             <Navegacion />
-
             {/* <Navbar bg="light" expand="lg">
               <Container>
                 <Navbar.Brand href="/">Gastro Avances</Navbar.Brand>

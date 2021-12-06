@@ -1,6 +1,9 @@
 import React, {Fragment,useState,useEffect,Component } from 'react';
 // import ProductosList from './ProductosList';
-
+import Table from "react-bootstrap/Table";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 function Retiros()
 {
   const [retiros, setRetiros] = useState([])
@@ -15,8 +18,13 @@ function Retiros()
   }, [])
 
     return (
-        <Fragment>
-        <table className ="table">
+      <Container>
+        <Row>
+          </Row>
+            <Col> <h1>Retiros</h1> </Col>
+            <Row>
+              <Col>
+              <Table bordered striped responsive>
             <thead>
                 <tr>
                     <th>Usuario</th>
@@ -42,9 +50,13 @@ function Retiros()
                 </tr> 
                 ))}
             </tbody>
-        </table>
+        </Table>
+              </Col>
 
-        </Fragment>
+            </Row>
+        
+      </Container>
+
       );
 }
 

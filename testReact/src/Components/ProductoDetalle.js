@@ -2,8 +2,10 @@ import React from 'react'
 import QRCode from 'qrcode.react';
 import {useState, useEffect, useRef} from "react";
 import {useParams} from "react-router-dom";
-
-
+import Table from "react-bootstrap/Table";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 function generarJson(id){
     var obj = new Object();
@@ -29,8 +31,14 @@ function ProductoDetalle()
 
 console.log(producto);
     return(
-    <div>
-        <table className ="table">
+        <Container>
+        
+            <Row>
+                <Col><h2>Detalle </h2></Col>
+            </Row>
+            <Row>
+                <Col>
+                <Table>
                 {producto.map( producto => (
                 <React.Fragment>
                 <tr>
@@ -51,10 +59,12 @@ console.log(producto);
                     <td><QRCode size={320} value={generarJson(producto.id_producto)} /></td>
                 </tr>
                 </React.Fragment>
-
                 ))}
-        </table>
-        </div>
+                </Table>
+                </Col>
+            </Row>    
+        </Container>
+        
     );
 
 }

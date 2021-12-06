@@ -1,8 +1,30 @@
 import React from 'react'
+import Table from "react-bootstrap/Table";
+import Button from "react-bootstrap/Button";
+import { withRouter } from "react-router-dom";
+import axios from '../Axios/axios';
+import { useHistory } from "react-router";
+
+const retiroProducto = (id_producto,history) =>{
+    //console.log("producto a retirar: " + id_producto);
+
+    axios.get("/api/productos?id=" + id_producto)
+    .then(response => {
+        console.log(response.data[0]);
+        const producto = response.data[0];
+        
+          history.push({
+          pathname: '/nuevofuncion',
+          state: {producto}
+        })
+    });
+};
+
 
 const ProductosList = ({productos}) =>{
+    const history = useHistory();
     return(
-        <table className ="table">
+        <Table striped bordered hover>
             <thead>
                 <tr>
                     <th>Nombre</th>
@@ -17,13 +39,13 @@ const ProductosList = ({productos}) =>{
                     <th>{producto.nombre}</th>
                     <th>{producto.precio_unitario}</th>
                     <th>{producto.cantidad}</th>
-                    <th><a href={'/productos/' + producto.id_producto}>Detalles</a> <a href={'/retiro/' + producto.id_producto}>Retiro</a></th>
+                    <th><Button  href={'/productos/' + producto.id_producto}>Detalles</Button> <Button onClick={() => {retiroProducto(producto.id_producto,history);}}>Retiro</Button></th>
                     
                 </tr> 
                 ))}
             </tbody>
-        </table>
+        </Table>
     );
 }
 
-export default ProductosList;
+export default withRouter(ProductosList);

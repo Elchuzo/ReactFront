@@ -1,5 +1,10 @@
 import React, {Fragment,useState,useEffect,Component } from 'react';
 import ProductosList from './ProductosList';
+import  Container from 'react-bootstrap/Container';
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+//import QRCode from 'react-qr-code';
+import Button from "react-bootstrap/Button";
 
 function Producto()
 {
@@ -15,24 +20,27 @@ function Producto()
   }, [])
 
     return (
-        <Fragment>
-          <div className="container">
-            <div className="row">
-              <div className="col-7">
-                <h2 style = {{textAlign: 'center'}}>Productos</h2>
-                <ProductosList productos={productos}/>
-              </div>
-              <div className="col-5">
-    
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <a href="/nuevo/">Crear Nuevo</a>
-          </div>
-
-        </Fragment>
+        <Container>
+          <Row>
+            <Col>
+            <h2>Productos</h2>
+            </Col>
+          </Row>
+          <br>
+          </br>
+          <Row>
+            <Col>
+            <ProductosList productos={productos}/>
+            </Col>
+          </Row>
+                
+          <Row>
+            <Col>
+            <Button href="/nuevo/">Nuevo</Button>
+            {/* <a href="/nuevo/">Nuevo</a> */}
+            </Col>
+          </Row>            
+        </Container>
       );
 }
 
